@@ -5,14 +5,14 @@ WORKDIR /code
 
 FROM base as dev
 COPY ./pyproject.toml ./
+COPY ./todo_app /code/todo_app/
 RUN poetry install
-COPY ./todo_app /code/
-ENTRYPOINT poetry run flask run -h 0.0.0.0 -p 5000
+ENTRYPOINT poetry run flask run --host=0.0.0.0
 
 FROM base as prod
 COPY pyproject.toml .
 RUN poetry install
-COPY ./todo_app /code/
+COPY ./todo_app /code/todo_app/
 ENV FLASK_ENV=production
 ENTRYPOINT poetry run gunicorn "todo_app.app:create_app()" --bind 0.0.0.0:5000
 

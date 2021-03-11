@@ -5,13 +5,8 @@ import todo_app.view_model as view_model
 from todo_app.Task import Task
 import todo_app.trello as trello
 
-app = Flask(__name__)
-headers = {
-   "Accept": "application/json"
-}
-
 def create_app():
-    #app = Flask(__name__)
+    app = Flask(__name__)
     #app.config.from_object('dotenv')
 
     @app.route('/', methods=['Get'])
@@ -46,7 +41,7 @@ def create_app():
     #return app
     if __name__ == '__main__':
         #app.debug = True
-        app.run(host='0.0.0.0', port=5000)  
+        app.run()  
 
     return app
 

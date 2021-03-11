@@ -70,7 +70,7 @@ docker run -p 5000:5000 --env-file .env -d todo-app:prod
 
 To run the development container as a daemon ensure you mount the project directory within the container e.g. run following command
 ```
-docker run -p 5000:5000 --env-file .env --mount type=bind,source=$(pwd),target=/code/todo_app/app -d todo-app:dev
+docker run -p 5000:5000 --env-file .env --mount type=bind,source=$(pwd),target=/code -d todo-app:dev
 ```
 
 ### Documentation
